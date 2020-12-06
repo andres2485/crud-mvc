@@ -1,0 +1,50 @@
+﻿
+Mostrar todos los usuarios
+
+@model IEnumerable<demo_crud.Models.Usuario>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var u in Model)
+        {
+            <tr>
+                <th scope="row">@u.Id</th>
+                <td>@u.Nombre</td>
+                <td>@u.Apellido</td>
+                <td>@u.Edad</td>
+                <td>@u.Direccion</td>
+                <td>@u.Telefono</td>
+                <td>
+                    <a class="btn btn-info" style="background:#c94f24" href="@Url.Action("Ver", "Usuarios", new { id =u.Id})">
+                        <img src="~/fonts/eye.ico" alt="Alternate Text" />
+
+                        Ver
+                    </a>
+                    <a class="btn btn-danger" href="@Url.Action("Editar", "Usuarios", new { id = u.Id})">Editar</a>
+
+                   
+
+
+                </td>
+
+            </tr>
+
+
+        }
+
+
+
+    </tbody>
+</table>
